@@ -54,6 +54,11 @@
            Array
         </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link " href="ExercicioArray.php">
+          Exercicio Array
+        </a>
+        </li>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -65,103 +70,96 @@
 
 <div class="container">
 
-    <h1> Array</h1>
+    <h1> Exercício Array</h1>
 
-    <p>As variaveis do tipo array são muito utilizadas quando vamos listar coisas.
-        Os arrays em php são listas de quaisquer tipo de dados.
-    </p>
-    <pre>
-        $array = [];
-        $array = array();
-        $array[0] = "Oi";
-        $array[2] = 10;
-        $array["Tayna"] = "Aluno" ;
-        $array[$array[2]] = "teste";
-    </pre>
-    <?php
-        $array = Array("oi",10,"aluno","teste",1.99, true);
-        echo "<h2>Como saber se deu certo ?</h2>";
-        var_dump($array);
-        echo "<pre>";
-        print_r($array);
-        echo "</pre>";
+    <?php//                0        1          2
+    $frutas = array("maçã", "laranja", "banana");
 
-        echo "<pre>";
-        var_dump($array);
-        echo "</pre>";
+    print_r($frutas); //EScreve na tela os dados do array
 
-        for($i = 0; $i < count($array); $i++ ){
-            echo "$array[$i]       <br>";
-        }
-    ?>
+    var_dump($frutas); //Detalha os dados do array
 
-    <p> Existem diversas formas de criar uma variavel array</p>
-    <pre>
-        array(
-            chave => valor,
-            chave2 => valor2,
-            chave3 => valor3,
-            ...
-        )
-    </pre>
-    <p>
-        Esse tipo de Array ( chave e valor) funciona da mesma forma porém não existem mais o indice com números 
-        passando a usar string como chave para os valores
-    </p>
+    echo count($frutas); //escreve na tela a quantidade de itens que o array possui
 
-    <?php
-        $array = array(
-            "foo" => "bar",
-            "bar" => "foo",
-        );
-        //utilizando sintaxe curta
-        $array = [
-            "foo" => "bar",
-            "bar" => "foo",
-        ];
-        echo "<pre>";
-        print_r($array);
-        echo "</pre>";
+    array_push($frutas, "kiwi"); //adiciona um novo item ao array
+    foreach($frutas as $fruta){
+        echo $fruta;
+    }
 
-        $resultados =[
-            "id" => 1,
-            "nome" => "Tayna",
-            "idade" => 18,
-            "salario" => 5325.50,
-            "aluno" => true
-        ];
-        echo "<pre>";
-        print_r($resultados);
-        echo "</pre>";
-    ?>
+?>
 
-        echo $resultado ["Nome"];
-    ?>
+//Exercício
+<p>Gere um array que cada indice desse array receba um novo array com as chaves Nome, idade e email
+com seus respectivos valores inventados aleatoriamente.</p>
 
-        <p> Para varrer todo o array de chave e valor 
-        precisamos de um laço de repetição exclusivo chamado foreach()</p>
-        <pre>
+<?php
 
-      foreach($array as $chaves => $valor)
-      {
-        echo $array[$chave];
-        //ou 
-        echo $valor;
-      }
-      </pre>
 
-      <?php   //variavel array chave valor
-      foreach($resultado as $chave => $valor)
-      {
-      echo "Valor pela chave: ".$resultado[$chave]."<br>";
-      //ou 
-      echo "Apenas valor: ".$valor."<br>";
-      echo "Apenas chave: ".$chave."<br>";
-      }
-      ?>
+$pessoas = array(
+    array(
+        "nome" => "Tayná",
+        "idade" => 18,
+        "email" => "tayna.silva@gmail.com"
+    ),
+
+    array(
+        "nome" => "Mariana",
+        "idade" => 21,
+        "email" => "mariana.silva@gmail.com"
+    ),
+
+    array(
+        "nome" => "Luana",
+        "idade" => 25,
+        "email" => "Luana.silva@gmail.com"
+    ),
+
+    array(
+        "nome" => "Antonietta",
+        "idade" => 20,
+        "email" => "antonietta.fernandez@gmail.com"
+    ),
+
+);
+
+    echo "<table border='5'>";
+    echo "<tr>";
+    echo "<td>Nome</td>";
+    echo "<td>Idade</td>";
+    echo "<td>Email</td>";
+    echo "</tr>";
+    for($i = 0; $i < count($pessoas); $i++)
+    {
+        echo "<tr>";
+        echo "<td>".$pessoas[$i]["nome"]."</td>";
+        echo "<td>".$pessoas[$i]["idade"]."</td>";
+        echo "<td>".$pessoas[$i]["email"]."</td>";
+        echo "</tr>";
+    }
     
-</div>
+
+    foreach($pessoas as $Lista )
+
+    {
+        echo "<tr>";
+        echo "<td>".$Lista["nome"]."</td>";
+        echo "<td>".$Lista["idade"]."</td>";
+        echo "<td>".$Lista["email"]."</td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
+?>
+
+    </div>
 
     <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
