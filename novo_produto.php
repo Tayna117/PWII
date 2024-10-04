@@ -1,4 +1,4 @@
-<?php //include "cabecalho.php"; ?>
+<?php include "cabecalho.php"; ?>
 
 <?php
     if(isset ($_POST["nome"]) && isset ($_POST["valor"]) && isset ($_POST["codigobarras"]) && isset ($_POST["datavalidade"]))
@@ -28,7 +28,22 @@
         }
         else
         {
-            
+            include "conexao.php";
+
+            $nome = $_POST["nome"];
+            $valor = str_replace(",",".", $_POST["valor"] ) ;
+            $codigobarras = $_POST["codigobarras"];
+
+            $query = "INSERT INTO produtos (DESCRICAO, VALOR, CODIGO_BARRAS, ATIVO) VALUES ( '$nome', $valor, '$codigobarras', 1 )";
+            $resultado = $conexao->query($query);
+            if($resultado)
+            {
+                echo "<div class='alert alert-sucess'>
+                        Salvo no banco com sucesso
+                        </div>";
+            }
+
+            echo "<h1> Salvo no banco com sucesso </h1>";
         }
 }
 ?>
