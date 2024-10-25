@@ -45,7 +45,7 @@ if(isset($_GET["Id"]) && !empty($_GET["Id"]))
         }
         else
         {
-            header("location: produtos.php?erro=Nenhum registro encontrado")
+            header("location: produtos.php?erro=Nenhum registro encontrado");
         }
         
     }
