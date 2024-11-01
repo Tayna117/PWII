@@ -43,6 +43,18 @@ $script = "
         ID INT PRIMARY KEY AUTO_INCREMENT,
         NOME VARCHAR(80) NOT NULL,
     );
+
+    INSERT INTO CATEGORIAS (NOME) VALUES
+    ('Eletrônicos'),
+    ('Roupas'),
+    ('Alimentos'),
+    ('Livros'),
+    ('Móveis'),
+    ('Brinquedos'),
+    ('Esportes'),
+    ('Beleza'),
+    ('Saúde'),
+    ('Tecnologia');
     
 ";
 
