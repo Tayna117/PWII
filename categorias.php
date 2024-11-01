@@ -10,7 +10,7 @@ if( isset($_GET["pesquisa"]) )
     {
        //Se a variavel estiver vazia executa aqui 
        include "conexao.php";
-       $sql = "Select Id, Nome from Categorias order by Id desc";
+       $sql = "Select id, nome from Categorias order by id desc";
        $resultado = $conexao->query($sql);
        
        $conexao->close();
@@ -19,10 +19,10 @@ if( isset($_GET["pesquisa"]) )
     {
         //Aqui vai a lógica da pesquisa
         include "conexao.php";
-        $sql = "Select Id, Nome
+        $sql = "Select id, nome
                 from Categorias  
                 where Descricao like '%$pesquisa%' || Codigo_Barras = '$pesquisa'
-                order by Id desc";
+                order by id desc";
         $resultado = $conexao->query($sql);
         
         $conexao->close();
@@ -32,7 +32,7 @@ else
 {
     $pesquisa = "";
     include "conexao.php";
-    $sql = "Select Id, Nome from Produtos order by Id desc";
+    $sql = "Select id, nome from Categorias order by id desc";
     $resultado = $conexao->query($sql);
    
     $conexao->close();
@@ -99,10 +99,10 @@ else
                             if ($resultado->num_rows > 0) {
                                 while($row = $resultado->fetch_assoc()) {
                                     echo "<tr>";
-                                    echo "<td>" . $row["Id"] . "</td>";
-                                    echo "<td>" . $row["Nome"] . "</td>";
-                                    echo "<td><a href='editar_categoria.php?Id=$row[Id]' class='btn btn-warning' >Editar</a>  ";
-                                    echo "<a href='excluir_categoria.php?Id=$row[Id]' class='btn btn-danger'>Excluir</a></td>";
+                                    echo "<td>" . $row["id"] . "</td>";
+                                    echo "<td>" . $row["nome"] . "</td>";
+                                    echo "<td><a href='editar_categoria.php?Id=$row[id]' class='btn btn-warning' >Editar</a>  ";
+                                    echo "<a href='excluir_categoria.php?Id=$row[id]' class='btn btn-danger'>Excluir</a></td>";
                                     echo "</tr>";
                                 }
                             } else {

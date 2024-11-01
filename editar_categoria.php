@@ -7,8 +7,8 @@ isset($_POST['nome']) && !empty($_POST['nome']) &&
 )
 {
     include "conexao.php";
-    $sql = "UPDATE CATEGORIAS SET Nome = '$_POST[nome]',
-            WHERE Id = $_POST[id]";
+    $sql = "UPDATE CATEGORIAS SET nome = '$_POST[nome]',
+            WHERE id = $_POST[id]";
 
      echo $sql;
     $resultado = $conexao->query($sql);
@@ -21,10 +21,10 @@ isset($_POST['nome']) && !empty($_POST['nome']) &&
         //caso o update de false
     }
 }
-if(isset($_GET["Id"]) && !empty($_GET["Id"]))
+if(isset($_GET["id"]) && !empty($_GET["id"]))
 {
     include "conexao.php";
-    $sql = "Select Id, Nome from categorias where Id = $_GET[Id]";
+    $sql = "Select id, nome from categorias where id = $_GET[id]";
     $resultado = $conexao->query($sql);
     if($resultado)
     {
@@ -33,8 +33,8 @@ if(isset($_GET["Id"]) && !empty($_GET["Id"]))
         
             while($row = $resultado->fetch_assoc())
             {
-                $id =$row["Id"];
-                $nome = $row["Nome"];
+                $id =$row["id"];
+                $nome = $row["nome"];
             }
         }
         else

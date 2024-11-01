@@ -1,10 +1,10 @@
 <?php
 
-if( !empty($_GET['Id']) && isset( $_GET['Id'] ) )
+if( !empty($_GET['id']) && isset( $_GET['id'] ) )
 {
     //Logica da exclusão
     include 'conexao.php';
-    $sql = "Delete from Categorias where Id = $_GET[Id]";
+    $sql = "Delete from Categorias where id = $_GET[id]";
     $resultado = $conexao->query($sql);
     if($resultado)
     {
